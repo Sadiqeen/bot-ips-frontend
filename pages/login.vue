@@ -27,13 +27,14 @@
                             ></b-input>
                         </b-field>
 
-                        <button
-                            type="submit"
-                            class="button is-success is-fullwidth"
+                        <b-button
+                            type="is-success"
+                            native-type="submit"
+                            class="is-fullwidth"
                             :disabled="is_loading"
                         >
                             เข้าสู่ระบบ
-                        </button>
+                        </b-button>
                     </div>
                 </form>
             </div>
