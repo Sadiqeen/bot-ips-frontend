@@ -1,0 +1,20 @@
+// Import bulma styles
+@import "~bulma";
+
+// Import buefy styles
+@import "~buefy/src/scss/buefy";
+
+@media (min-width : $desktop) {
+    .ml-desktop-5 {
+        margin-left: 1.5rem;
+    }
+
+    .mb-desktop-0 {
+        margin-bottom: 0 !important;
+    }
+}
+
+.navbar-start > .nuxt-link-exact-active {
+    background-color: $primary !important;
+    color: white !important;
+}
