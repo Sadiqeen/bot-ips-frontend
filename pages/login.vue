@@ -2,7 +2,7 @@
     <section>
         <div class="columns is-centered mt-5">
             <div class="column is-6">
-                <form @submit.prevent="login">
+                <form @submit.prevent="login()">
                     <div class="box">
                         <div class="notification is-danger" v-if="error">
                             {{ error }}
