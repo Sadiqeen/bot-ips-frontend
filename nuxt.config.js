@@ -46,14 +46,15 @@ export default {
         '@nuxtjs/axios',
         '@nuxtjs/auth-next',
         '@nuxtjs/dayjs',
-        'nuxt-clipboard'
+        'nuxt-clipboard',
+        '@nuxtjs/dotenv',
     ],
 
     auth: {
         strategies: {
             'laravelJWT': {
                 provider: 'laravel/jwt',
-                url: 'http://localhost:8000',
+                url: process.env.API,
                 endpoints: {
                     login: { url: '/api/login', method: 'post', propertyName: 'access_token' },
                     logout: { url: '/api/logout' },
