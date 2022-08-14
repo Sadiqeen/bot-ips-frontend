@@ -33,9 +33,14 @@
                         >
                             Log in
                         </NuxtLink>
-                        <a v-if="loggedIn" class="button is-primary">{{
-                            user.name
-                        }}</a>
+
+                        <NuxtLink
+                            tag="a"
+                            to="profile"
+                            v-if="loggedIn"
+                            class="button is-primary"
+                            >{{ user.name }}</NuxtLink
+                        >
                         <a
                             v-if="loggedIn"
                             class="button is-light"
