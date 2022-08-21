@@ -116,6 +116,8 @@
 
 <script>
 export default {
+    middleware: "auth",
+
     computed: {
         indicators() {
             return this.bars ? "bars" : "dots";

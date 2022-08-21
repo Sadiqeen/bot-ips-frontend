@@ -46,6 +46,8 @@
 import PageForm from "~/components/PageForm";
 
 export default {
+    middleware: "auth",
+
     data() {
         return {
             editId: this.$route.params.id,

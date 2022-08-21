@@ -1,6 +1,6 @@
 <template>
     <section class="mt-5">
-        <h3 class="title">
+        <h3 class="title is-hidden-mobile">
             <b-icon icon="circle-edit-outline" /> ข้อมูลเพจ {{ title }}
 
             <b-button
@@ -19,6 +19,28 @@
                 <b-icon icon="download" />
             </b-button>
         </h3>
+
+        <div class="is-flex is-flex-direction-column is-hidden-tablet">
+            <div class="title">
+                <b-icon icon="circle-edit-outline" /> ข้อมูลเพจ {{ title }}
+            </div>
+
+            <div class="is-flex is-justify-content-space-between">
+                <b-button type="is-primary" class="m-1" expanded @click="cardModal">
+                    <b-icon icon="download" />
+                </b-button>
+
+                <b-button
+                    tag="nuxt-link"
+                    :to="{ name: 'page' }"
+                    type="is-primary"
+                    class="m-1"
+                    expanded
+                >
+                    <b-icon icon="format-list-bulleted" />
+                </b-button>
+            </div>
+        </div>
 
         <div class="box mt-5 has-background-primary">
             <div class="box">
@@ -66,6 +88,8 @@ import DistrictForm from "~/components/DistrictForm";
 import ScrapLocation from "~/components/ScrapLocation";
 
 export default {
+    middleware: "auth",
+
     data() {
         return {
             page_id: this.$route.params.id,

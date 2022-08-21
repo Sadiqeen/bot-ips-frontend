@@ -1,7 +1,7 @@
 <template>
     <section>
         <form @submit.prevent="submit">
-            <div class="columns is-centered">
+            <div class="columns is-centered mb-3">
                 <div class="column is-3">
                     <b-field
                         label="อำเภอ"
@@ -35,6 +35,7 @@
                             type="is-primary"
                             native-type="submit"
                             :disabled="is_loading"
+                            expanded
                         >
                             <b-icon icon="plus-circle-outline"></b-icon>
                         </b-button>

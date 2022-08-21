@@ -1,22 +1,21 @@
 <template>
     <section class="section">
-        <div class="columns is-mobile">
-            <card title="Free" icon="github">
-                Open source on
-                <a href="https://github.com/buefy/buefy"> GitHub </a>
+        <div class="columns is-multiline ">
+            <card title="Page" icon="format-list-bulleted-square" class="column is-3-desktop is-6-tablet ">
+                <template v-if="!pageCount"><b-skeleton animated></b-skeleton></template>
+                <template v-else>Have <b>{{ pageCount }}</b> pages</template>
             </card>
 
-            <card title="Responsive" icon="cellphone-link">
-                <b class="has-text-grey"> Every </b> component is responsive
+            <card title="District" icon="office-building" class="column is-3-desktop is-6-tablet">
+                Have <b>{{ districtCount }}</b> districts
             </card>
 
-            <card title="Modern" icon="alert-decagram">
-                Built with <a href="https://vuejs.org/"> Vue.js </a> and
-                <a href="http://bulma.io/"> Bulma </a>
+            <card title="User" icon="account" class="column is-3-desktop is-6-tablet">
+                Have <b>{{ userCount }}</b> users
             </card>
 
-            <card title="Lightweight" icon="arrange-bring-to-front">
-                No other internal dependency
+            <card title="Other" icon="arrange-bring-to-front" class="column is-3-desktop is-6-tablet">
+                <b>Not defined</b>
             </card>
         </div>
     </section>
@@ -27,14 +26,41 @@ import Card from "~/components/Card";
 
 export default {
     name: "IndexPage",
+    middleware: "auth",
+
     data() {
         return {
-            user: this.$auth.user,
-            loggedIn: this.$auth.loggedIn,
+            pageCount : null,
+            districtCount : null,
+            userCount : null,
         };
     },
+
     components: {
         Card,
     },
+
+    mounted() {
+        this.initData();
+    },
+
+    methods : {
+        async initData() {
+            try {
+                const response = await this.$axios.$get(`main`);
+
+                this.pageCount = response.data.pages;
+                this.districtCount = response.data.districts;
+                this.userCount = response.data.users;
+            } catch (e) {
+                console.error(e);
+
+                this.$buefy.toast.open({
+                    message: "มีข้อผิดพลาด!!",
+                    type: "is-danger",
+                });
+            }
+        }
+    }
 };
 </script>
