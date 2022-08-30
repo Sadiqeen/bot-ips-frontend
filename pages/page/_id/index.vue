@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <div class="box mt-5 has-background-primary">
+        <div class="box mt-5 has-background-primary p-2">
             <div class="box">
                 <div class="columns is-centered">
                     <div class="column is-6">
@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        <div class="box my-5 has-background-primary">
+        <div class="box my-5 has-background-primary p-2">
             <div class="box">
                 <DistrictForm
                     :page_id="page_id"

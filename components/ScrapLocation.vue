@@ -7,36 +7,63 @@
             </header>
             <section class="modal-card-body">
                 <b-field label="ไอดีจังหวัด">
-                    <b-input type="text" v-model="form.province_id" required>
-                    </b-input>
+                    <b-numberinput
+                        type="is-success"
+                        v-model="form.province_id"
+                        min="0"
+                        max="999"
+                        required
+                    >
+                    </b-numberinput>
                 </b-field>
 
                 <b-field label="ไอดีอำเภอที่เริ่ม">
-                    <b-input
-                        type="text"
+                    <b-numberinput
+                        type="is-success"
                         v-model="form.first_district_id"
+                        min="0"
+                        max="999"
                         required
                     >
-                    </b-input>
+                    </b-numberinput>
                 </b-field>
 
                 <b-field label="ไอดีอำเภอสุดท้าย">
-                    <b-input
-                        type="text"
+                    <b-numberinput
+                        type="is-success"
                         v-model="form.last_district_id"
+                        min="0"
+                        max="999"
                         required
                     >
-                    </b-input>
+                    </b-numberinput>
                 </b-field>
             </section>
-            <footer class="modal-card-foot is-centered">
-                <b-button label="ปิด" @click="$emit('close')" />
+            <footer
+                class="modal-card-foot is-flex is-justify-content-space-between"
+            >
                 <b-button
-                    label="ดึงข้อมูล"
-                    type="is-primary"
-                    native-type="submit"
-                    :disabled="is_loading"
+                    label="ปิด"
+                    type="is-danger"
+                    @click="$emit('close')"
                 />
+
+                <div class="">
+                    <b-button
+                        tag="a"
+                        type="is-link"
+                        label="Muslim pro"
+                        href="https://prayertime.muslimthaipost.com/index.php"
+                        target="_blank"
+                        outlined
+                    />
+                    <b-button
+                        label="ดึงข้อมูล"
+                        type="is-primary"
+                        native-type="submit"
+                        :disabled="is_loading"
+                    />
+                </div>
             </footer>
         </div>
     </form>
@@ -54,9 +81,9 @@ export default {
     data() {
         return {
             form: {
-                province_id: "",
-                first_district_id: "",
-                last_district_id: "",
+                province_id: 0,
+                first_district_id: 0,
+                last_district_id: 0,
             },
             is_loading: false,
             form_errors: {},
@@ -96,8 +123,8 @@ export default {
                     };
 
                     this.is_loading = false;
-                    this.$emit('close');
-                    this.$emit('updateDistrictTable');
+                    this.$emit("close");
+                    this.$emit("updateDistrictTable");
                 }
             } catch (e) {
                 if (e.response.status == 422) {

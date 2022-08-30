@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class="box my-5 has-background-primary">
+        <div class="box my-5 has-background-primary p-2">
             <div class="box">
                 <PageTable />
             </div>

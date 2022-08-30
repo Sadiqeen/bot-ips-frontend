@@ -8,7 +8,7 @@
                         :type="formErrors('name')"
                         :message="formErrors('name', true)"
                     >
-                        <b-input v-model="form.name"></b-input>
+                        <b-input v-model="form.name" required></b-input>
                     </b-field>
                 </div>
                 <div class="column is-3">
@@ -17,7 +17,7 @@
                         :type="formErrors('lat')"
                         :message="formErrors('lat', true)"
                     >
-                        <b-input v-model="form.lat"></b-input>
+                        <b-input v-model="form.lat" required></b-input>
                     </b-field>
                 </div>
                 <div class="column is-3">
@@ -26,7 +26,7 @@
                         :type="formErrors('long')"
                         :message="formErrors('long', true)"
                     >
-                        <b-input v-model="form.long"></b-input>
+                        <b-input v-model="form.long" required></b-input>
                     </b-field>
                 </div>
                 <div class="column is-1">

@@ -1,57 +1,59 @@
 <template>
     <div>
-        <b-navbar shadow class="is-max-widescreen">
-            <template #brand>
-                <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                    <h1 class="has-text-weight-bold">Bot IPS</h1>
-                </b-navbar-item>
-            </template>
-            <template #start>
-                <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                    หน้าแรก
-                </b-navbar-item>
-
-                <template v-if="loggedIn">
-                    <b-navbar-item
-                        v-for="(menu, index) in authMenu"
-                        :key="index"
-                        tag="router-link"
-                        :to="menu.to"
-                    >
-                        {{ menu.label }}
+        <section class="section">
+            <b-navbar shadow class="is-max-widescreen is-fixed-top is-light">
+                <template #brand>
+                    <b-navbar-item tag="router-link" :to="{ path: '/' }">
+                        <h1 class="has-text-weight-bold">Bot IPS</h1>
                     </b-navbar-item>
                 </template>
-            </template>
+                <template #start>
+                    <b-navbar-item tag="router-link" :to="{ path: '/' }">
+                        หน้าแรก
+                    </b-navbar-item>
 
-            <template #end>
-                <b-navbar-item tag="div">
-                    <div class="buttons">
-                        <NuxtLink
-                            v-if="!loggedIn"
-                            class="button is-primary"
-                            to="login"
+                    <template v-if="loggedIn">
+                        <b-navbar-item
+                            v-for="(menu, index) in authMenu"
+                            :key="index"
+                            tag="router-link"
+                            :to="menu.to"
                         >
-                            Log in
-                        </NuxtLink>
+                            {{ menu.label }}
+                        </b-navbar-item>
+                    </template>
+                </template>
 
-                        <NuxtLink
-                            tag="a"
-                            to="profile"
-                            v-if="loggedIn"
-                            class="button is-primary"
-                            >{{ user.name }}</NuxtLink
-                        >
-                        <a
-                            v-if="loggedIn"
-                            class="button is-light"
-                            @click="logout"
-                        >
-                            Log out
-                        </a>
-                    </div>
-                </b-navbar-item>
-            </template>
-        </b-navbar>
+                <template #end>
+                    <b-navbar-item tag="div">
+                        <div class="buttons">
+                            <NuxtLink
+                                v-if="!loggedIn"
+                                class="button is-primary"
+                                to="login"
+                            >
+                                Log in
+                            </NuxtLink>
+
+                            <NuxtLink
+                                tag="a"
+                                to="profile"
+                                v-if="loggedIn"
+                                class="button is-primary"
+                                >{{ user.name }}</NuxtLink
+                            >
+                            <a
+                                v-if="loggedIn"
+                                class="button is-light"
+                                @click="logout"
+                            >
+                                Log out
+                            </a>
+                        </div>
+                    </b-navbar-item>
+                </template>
+            </b-navbar>
+        </section>
 
         <section class="main-content">
             <div class="container is-max-widescreen px-3">
@@ -74,6 +76,10 @@ export default {
                 {
                     label: "ปฏิทิน",
                     to: "/calendar",
+                },
+                {
+                    label: "ตั้งค่า",
+                    to: "/config",
                 },
             ],
         };

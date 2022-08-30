@@ -12,7 +12,7 @@
             </b-button>
         </h3>
 
-        <div class="box my-5 has-background-primary">
+        <div class="box my-5 has-background-primary p-2">
             <div class="box">
                 <div class="columns is-centered">
                     <div class="column is-6">

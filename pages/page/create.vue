@@ -12,10 +12,12 @@
             </b-button>
         </h3>
 
-        <div class="box mt-5">
-            <div class="columns is-centered">
-                <div class="column is-6">
-                    <PageForm :preDefined="form" submitTo="page/store" />
+        <div class="box my-5 has-background-primary p-2">
+            <div class="box">
+                <div class="columns is-centered">
+                    <div class="column is-6">
+                        <PageForm :preDefined="form" submitTo="page/store" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,7 +42,7 @@ export default {
     },
 
     components: {
-        PageForm
+        PageForm,
     },
 };
 </script>

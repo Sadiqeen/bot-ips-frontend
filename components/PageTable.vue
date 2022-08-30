@@ -47,12 +47,16 @@
 
             <b-table-column label="###" centered v-slot="props">
                 <b-button
-                    type="is-primary is-light"
+                    type="is-success is-light"
                     size="is-small"
                     icon-right="card-account-details"
+                    tag="a"
+                    :href="props.row.url"
+                    target="_blank"
                 />
+
                 <b-button
-                    type="is-primary is-light"
+                    type="is-success is-light"
                     size="is-small"
                     icon-right="content-copy"
                     @click="copySomething(props.row.page_id)"
@@ -64,16 +68,19 @@
                     icon-right="run"
                 />
                 <b-button
-                    type="is-info  is-light"
+                    type="is-info is-light"
                     size="is-small"
                     icon-right="content-copy"
-                    @click="copySomething(props.row.page_id)"
+                    @click="copyApiLink(props.row.page_id)"
                 />
 
                 <b-button
                     type="is-danger is-light"
                     size="is-small"
                     icon-right="key"
+                    tag="a"
+                    :href="fbTokenDebugLink + props.row.token"
+                    target="_blank"
                 />
                 <b-button
                     type="is-danger is-light"
@@ -133,6 +140,7 @@ export default {
             page: 1,
             perpage: 10,
             total: 10,
+            fbTokenDebugLink: "https://developers.facebook.com/tools/debug/accesstoken/?access_token="
         };
     },
     mounted() {
@@ -166,6 +174,9 @@ export default {
             }
 
             this.isLoading = false;
+        },
+        async copyApiLink(id) {
+            this.copySomething(process.env.API + "/api/post/" + id);
         },
         async copySomething(text) {
             try {

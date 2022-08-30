@@ -8,10 +8,10 @@
                     <div class="column is-6">
                         <form @submit.prevent="submit">
                             <b-field label="รหัสผ่านใหม่">
-                                <b-input type="password"></b-input>
+                                <b-input type="password" v-model="formData.password" required></b-input>
                             </b-field>
                             <b-field label="กรอกรหัสผ่านอีกครั้ง">
-                                <b-input type="password"></b-input>
+                                <b-input type="password" v-model="formData.confirmPassword" required></b-input>
                             </b-field>
 
                             <div class="is-flex is-justify-content-center">

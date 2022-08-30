@@ -6,28 +6,28 @@
                 :type="formErrors('name')"
                 :message="formErrors('name', true)"
             >
-                <b-input v-model="formData.name" :disabled="readonly"></b-input>
+                <b-input v-model="formData.name" :disabled="readonly" required></b-input>
             </b-field>
             <b-field
                 label="ลิ้งค์เพจ"
                 :type="formErrors('url')"
                 :message="formErrors('url', true)"
             >
-                <b-input v-model="formData.url" :disabled="readonly"></b-input>
+                <b-input v-model="formData.url" :disabled="readonly" required></b-input>
             </b-field>
             <b-field
                 label="เพจไอดี"
                 :type="formErrors('page_id')"
                 :message="formErrors('page_id', true)"
             >
-                <b-input v-model="formData.page_id" :disabled="readonly"></b-input>
+                <b-input v-model="formData.page_id" :disabled="readonly" required></b-input>
             </b-field>
             <b-field
                 label="โทเค็น"
                 :type="formErrors('token')"
                 :message="formErrors('token', true)"
             >
-                <b-input v-model="formData.token" type="textarea" :disabled="readonly"></b-input>
+                <b-input v-model="formData.token" type="textarea" :disabled="readonly" required></b-input>
             </b-field>
 
             <div class="is-flex is-justify-content-center" v-if="!readonly">
