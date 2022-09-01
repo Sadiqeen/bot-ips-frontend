@@ -105,9 +105,9 @@ export default {
                         type: "is-danger",
                     });
                 }
-                this.is_loading = false;
-                this.password = "";
             }
+
+            this.is_loading = false;
         },
 
         formErrors(field, messages = false) {
