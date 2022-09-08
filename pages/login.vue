@@ -69,6 +69,8 @@ export default {
                         password: this.password,
                     },
                 });
+
+                this.$router.push("/");
             } catch (e) {
                 if (e.response.status == 422) {
                     this.form_errors = e.response.data;

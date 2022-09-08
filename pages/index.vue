@@ -2,8 +2,7 @@
     <section class="section">
         <div class="columns is-multiline ">
             <card title="Page" icon="format-list-bulleted-square" class="column is-3-desktop is-6-tablet ">
-                <template v-if="!pageCount"><b-skeleton animated></b-skeleton></template>
-                <template v-else>Have <b>{{ pageCount }}</b> pages</template>
+                Have <b>{{ pageCount }}</b> pages
             </card>
 
             <card title="District" icon="office-building" class="column is-3-desktop is-6-tablet">
@@ -30,9 +29,9 @@ export default {
 
     data() {
         return {
-            pageCount : null,
-            districtCount : null,
-            userCount : null,
+            pageCount : 0,
+            districtCount : 0,
+            userCount : 0,
         };
     },
 

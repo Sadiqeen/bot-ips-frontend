@@ -1,58 +1,51 @@
 <template>
     <div>
-        <section class="section">
-            <b-navbar shadow class="is-max-widescreen is-fixed-top is-light">
-                <template #brand>
-                    <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                        <h1 class="has-text-weight-bold">Bot IPS</h1>
-                    </b-navbar-item>
-                </template>
-                <template #start>
-                    <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                        หน้าแรก
-                    </b-navbar-item>
+        <section class="p-3">
+            <div class="container is-max-widescreen">
+                <Navbar
+                    @toggleDrawer="openDrawer = true"
+                    @logout="logout"
+                ></Navbar>
+            </div>
 
-                    <template v-if="loggedIn">
-                        <b-navbar-item
-                            v-for="(menu, index) in authMenu"
-                            :key="index"
-                            tag="router-link"
-                            :to="menu.to"
+            <b-sidebar type="is-light" fullheight overlay v-model="openDrawer">
+                <div class="p-4">
+                    <div class="is-flex is-justify-content-center py-6">
+                        <div
+                            class="is-flex is-align-items-center is-flex-direction-column"
                         >
-                            {{ menu.label }}
-                        </b-navbar-item>
-                    </template>
-                </template>
+                            <img src="logo.png" width="50px" />
+                            <strong class="mt-3">
+                                {{ loggedIn ? user.name : "Please log in" }}
+                            </strong>
+                        </div>
+                    </div>
 
-                <template #end>
-                    <b-navbar-item tag="div">
-                        <div class="buttons">
-                            <NuxtLink
-                                v-if="!loggedIn"
-                                class="button is-primary"
-                                to="login"
-                            >
-                                Log in
-                            </NuxtLink>
+                    <b-menu>
+                        <b-menu-list label="Menu">
+                            <template v-for="(menu, index) in authMenu">
+                                <b-menu-item
+                                    :key="index"
+                                    :icon="menu.icon"
+                                    :label="menu.label"
+                                    @click="changePage(menu.to)"
+                                    v-if="(menu.auth && loggedIn) || !menu.auth"
+                                >
+                                </b-menu-item>
+                            </template>
+                        </b-menu-list>
 
-                            <NuxtLink
-                                tag="a"
-                                to="profile"
-                                v-if="loggedIn"
-                                class="button is-primary"
-                                >{{ user.name }}</NuxtLink
-                            >
-                            <a
-                                v-if="loggedIn"
-                                class="button is-light"
+                        <b-menu-list label="Auth" v-if="loggedIn">
+                            <b-menu-item
+                                icon="logout"
+                                label="ออกจากระบบ"
                                 @click="logout"
                             >
-                                Log out
-                            </a>
-                        </div>
-                    </b-navbar-item>
-                </template>
-            </b-navbar>
+                            </b-menu-item>
+                        </b-menu-list>
+                    </b-menu>
+                </div>
+            </b-sidebar>
         </section>
 
         <section class="main-content">
@@ -64,22 +57,37 @@
 </template>
 
 <script>
+import Navbar from "~/components/Navbar.vue";
+
 export default {
     name: "DefaultLayout",
     data() {
         return {
+            openDrawer: false,
             authMenu: [
                 {
+                    icon: "home",
+                    label: "หน้าแรก",
+                    to: "/",
+                    auth: false,
+                },
+                {
+                    icon: "format-list-bulleted",
                     label: "เพจ",
                     to: "/page",
+                    auth: true,
                 },
                 {
+                    icon: "calendar",
                     label: "ปฏิทิน",
                     to: "/calendar",
+                    auth: true,
                 },
                 {
+                    icon: "cog-outline",
                     label: "ตั้งค่า",
                     to: "/config",
+                    auth: true,
                 },
             ],
         };
@@ -87,8 +95,12 @@ export default {
     methods: {
         async logout() {
             await this.$auth.logout();
-            this.component_id = this.component_id + 1;
             this.$router.push("/login");
+        },
+
+        changePage(link) {
+            this.openDrawer = false;
+            this.$router.push(link);
         },
     },
 
@@ -99,6 +111,10 @@ export default {
         loggedIn() {
             return this.$store.state.auth.loggedIn;
         },
+    },
+
+    components: {
+        Navbar,
     },
 };
 </script>

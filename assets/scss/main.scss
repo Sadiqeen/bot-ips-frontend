@@ -99,3 +99,8 @@ $primary: #7957d5 !default;
     background-color: $primary !important;
     color: white !important;
 }
+
+.navbar-bottom {
+    border-bottom: 2px solid black;
+    padding-bottom: 1em;
+}
