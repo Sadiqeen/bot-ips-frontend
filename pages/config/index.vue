@@ -1,6 +1,6 @@
 <template>
     <section class="mt-5">
-        <div class="title"><b-icon icon="format-list-bulleted" /> ตั้งค่า</div>
+        <div class="title"><b-icon icon="cog-outline" /> ตั้งค่า</div>
 
         <div class="box my-5 has-background-primary p-2">
             <div class="box">

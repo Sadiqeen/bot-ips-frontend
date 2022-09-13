@@ -89,6 +89,12 @@ export default {
                     to: "/config",
                     auth: true,
                 },
+                {
+                    icon: "text-box-search-outline",
+                    label: "Log",
+                    to: "/log",
+                    auth: true,
+                },
             ],
         };
     },
