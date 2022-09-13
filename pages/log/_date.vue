@@ -49,7 +49,9 @@
                         v-slot="props"
                         centered
                     >
-                        <b-icon :icon="props.row.is_edited ? 'check-circle' : 'circle-outline'" :type="props.row.is_edited ? 'is-success' : 'is-info'"/>
+                        <b-icon
+                            :icon="parseInt(props.row.is_edited) ? 'check-circle' : 'circle-outline'"
+                            :type="parseInt(props.row.is_edited) ? 'is-success' : 'is-info'"/>
                     </b-table-column>
 
                     <b-table-column
