@@ -8,9 +8,11 @@
             <a class="navbar-item" @click="$emit('toggleDrawer')">
                 <b-icon icon="menu"></b-icon>
             </a>
-            <a class="navbar-item" @click="$router.push('/')">
+            <div class="navbar-item">
                 <img src="logo.png" height="28" />
-            </a>
+                <span class="ml-2 has-text-weight-bold is-size-5 is-hidden-mobile is-hidden-tablet-only">Bot islamic prayer times</span>
+                <span class="ml-2 has-text-weight-bold is-size-5 is-hidden-desktop">Bot IPT</span>
+            </div>
         </div>
 
         <div class="is-flex is-align-content-center" v-if="loggedIn">
