@@ -1,51 +1,13 @@
 <template>
     <div>
-        <section class="p-3">
+        <section class="has-background-light navbar-shadow py-3">
             <div class="container is-max-widescreen">
                 <Navbar
                     @toggleDrawer="openDrawer = true"
                     @logout="logout"
+                    :menus="authMenu"
                 ></Navbar>
             </div>
-
-            <b-sidebar type="is-light" fullheight overlay v-model="openDrawer">
-                <div class="p-4">
-                    <div class="is-flex is-justify-content-center py-6">
-                        <div
-                            class="is-flex is-align-items-center is-flex-direction-column"
-                        >
-                            <img src="logo.png" width="50px" />
-                            <strong class="mt-3">
-                                {{ loggedIn ? user.name : "Please log in" }}
-                            </strong>
-                        </div>
-                    </div>
-
-                    <b-menu>
-                        <b-menu-list label="Menu">
-                            <template v-for="(menu, index) in authMenu">
-                                <b-menu-item
-                                    :key="index"
-                                    :icon="menu.icon"
-                                    :label="menu.label"
-                                    @click="changePage(menu.to)"
-                                    v-if="(menu.auth && loggedIn) || !menu.auth"
-                                >
-                                </b-menu-item>
-                            </template>
-                        </b-menu-list>
-
-                        <b-menu-list label="Auth" v-if="loggedIn">
-                            <b-menu-item
-                                icon="logout"
-                                label="ออกจากระบบ"
-                                @click="logout"
-                            >
-                            </b-menu-item>
-                        </b-menu-list>
-                    </b-menu>
-                </div>
-            </b-sidebar>
         </section>
 
         <section class="main-content">

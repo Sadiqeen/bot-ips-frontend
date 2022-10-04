@@ -9,7 +9,7 @@
                 :to="{ name: 'log' }"
                 type="is-primary is-pulled-right"
             >
-                <b-icon icon="text-box-search-outline" />
+                <b-icon icon="text-box-search-outline has-text-white" />
             </b-button>
         </div>
 

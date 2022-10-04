@@ -16,7 +16,6 @@
                             <div class="box is-flex is-justify-content-center has-text-white"
                                 :class="$dayjs(log.date).format('d') == 0 || $dayjs(log.date).format('d') == 6 ? 'has-background-danger-dark' : 'has-background-success-dark' ">
                                 <div class="has-text-centered">
-                                    <strong class="is-size-4">โพสวันที่</strong>
                                     <p>{{ convertDate(log.date) }}</p>
                                 </div>
                             </div>

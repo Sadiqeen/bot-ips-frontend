@@ -104,3 +104,13 @@ $primary: #7957d5 !default;
     border-bottom: 2px solid black;
     padding-bottom: 1em;
 }
+
+.nuxt-link-exact-active, .nuxt-link-active {
+    color: $primary !important;
+}
+
+.navbar-shadow {
+    box-shadow: 0px -20px 40px -1px rgba(0,0,0,1);
+    -webkit-box-shadow: 0px -20px 40px -1px rgba(0,0,0,1);
+    -moz-box-shadow: 0px -20px 40px -1px rgba(0,0,0,1);
+}

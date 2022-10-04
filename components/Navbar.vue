@@ -1,40 +1,65 @@
 <template>
-    <nav
-        class="navbar is-flex is-justify-content-space-between navbar-bottom"
-        role="navigation"
-        aria-label="main navigation"
-    >
-        <div class="navbar-brand">
-            <a class="navbar-item" @click="$emit('toggleDrawer')">
-                <b-icon icon="menu"></b-icon>
-            </a>
-            <div class="navbar-item">
+    <b-navbar type="is-light">
+        <template #brand>
+            <b-navbar-item tag="div">
                 <img src="logo.png" height="28" />
-                <span class="ml-2 has-text-weight-bold is-size-5 is-hidden-mobile is-hidden-tablet-only">Bot islamic prayer times</span>
-                <span class="ml-2 has-text-weight-bold is-size-5 is-hidden-desktop">Bot IPT</span>
-            </div>
-        </div>
+                <span
+                    class="ml-2 has-text-weight-bold is-size-5 is-hidden-mobile is-hidden-tablet-only"
+                    >Bot islamic prayer times</span
+                >
+                <span
+                    class="ml-2 has-text-weight-bold is-size-5 is-hidden-desktop"
+                    >Bot IPT</span
+                >
+            </b-navbar-item>
+        </template>
+        <template #end>
+            <template v-if="loggedIn">
+                <b-navbar-item
+                    tag="router-link"
+                    v-for="(menu, index) in menus"
+                    :to="menu.to"
+                    :key="index"
+                    exact
+                    >{{ menu.label }}</b-navbar-item
+                >
 
-        <div class="is-flex is-align-content-center" v-if="loggedIn">
-            <b-button type="is-primary" class="my-auto mr-2" tag="nuxt-link" to="profile">
-                <b-icon icon="account" size="is-small"> </b-icon>
-            </b-button>
-            <b-button type="is-danger" class="m-auto" @click="$emit('logout')">
-                <b-icon icon="logout" size="is-small"> </b-icon>
-            </b-button>
-        </div>
+                <b-navbar-item tag="div">
+                    <b-dropdown aria-role="list">
+                        <template #trigger="{ active }">
+                            <b-button
+                                :label="user.name"
+                                type="is-primary"
+                                :icon-right="active ? 'menu-up' : 'menu-down'"
+                            />
+                        </template>
 
-        <div class="is-flex" v-else>
-            <b-button type="is-primary" class="m-auto" @click="$emit('login')">
-                <b-icon icon="login" size="is-small"> </b-icon>
-            </b-button>
-        </div>
-    </nav>
+                        <b-dropdown-item aria-role="listitem" @click="$router.push('profile');"
+                            >แก้ไขโปรไฟล์</b-dropdown-item
+                        >
+                        <b-dropdown-item aria-role="listitem" @click="$emit('logout')"
+                            >ออกจากระบบ</b-dropdown-item
+                        >
+                    </b-dropdown>
+                </b-navbar-item>
+            </template>
+
+            <template v-else>
+                <b-navbar-item tag="router-link" to="/login" exact
+                    >เข้าสู่ระบบ</b-navbar-item
+                >
+            </template>
+        </template>
+    </b-navbar>
 </template>
 
 <script>
 export default {
+    props: ["menus"],
     computed: {
+        user() {
+            return this.$store.state.auth.user;
+        },
         loggedIn() {
             return this.$store.state.auth.loggedIn;
         },

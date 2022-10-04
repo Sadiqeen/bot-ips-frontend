@@ -1,19 +1,39 @@
 <template>
     <section class="section">
-        <div class="columns is-multiline ">
-            <card title="Page" icon="format-list-bulleted-square" class="column is-3-desktop is-6-tablet ">
+        <div class="notification is-danger has-text-centered">
+            ยินดีต้อนรับ <b>{{ user.name }}</b> เข้าสู่ระบบ
+        </div>
+
+        <div class="columns is-multiline">
+            <card
+                title="Page"
+                icon="format-list-bulleted-square"
+                class="column is-3-desktop is-6-tablet"
+            >
                 Have <b>{{ pageCount }}</b> pages
             </card>
 
-            <card title="District" icon="office-building" class="column is-3-desktop is-6-tablet">
+            <card
+                title="District"
+                icon="office-building"
+                class="column is-3-desktop is-6-tablet"
+            >
                 Have <b>{{ districtCount }}</b> districts
             </card>
 
-            <card title="User" icon="account" class="column is-3-desktop is-6-tablet">
+            <card
+                title="User"
+                icon="account"
+                class="column is-3-desktop is-6-tablet"
+            >
                 Have <b>{{ userCount }}</b> users
             </card>
 
-            <card title="Other" icon="arrange-bring-to-front" class="column is-3-desktop is-6-tablet">
+            <card
+                title="Other"
+                icon="arrange-bring-to-front"
+                class="column is-3-desktop is-6-tablet"
+            >
                 <b>Not defined</b>
             </card>
         </div>
@@ -29,9 +49,9 @@ export default {
 
     data() {
         return {
-            pageCount : 0,
-            districtCount : 0,
-            userCount : 0,
+            pageCount: 0,
+            districtCount: 0,
+            userCount: 0,
         };
     },
 
@@ -43,7 +63,13 @@ export default {
         this.initData();
     },
 
-    methods : {
+    computed: {
+        user() {
+            return this.$store.state.auth.user;
+        },
+    },
+
+    methods: {
         async initData() {
             try {
                 const response = await this.$axios.$get(`main`);
@@ -59,7 +85,7 @@ export default {
                     type: "is-danger",
                 });
             }
-        }
-    }
+        },
+    },
 };
 </script>
