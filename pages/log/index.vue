@@ -6,7 +6,8 @@
 
         <div class="box my-5 has-background-primary p-2">
             <div class="box">
-                <div class="columns is-multiline">
+
+                <div class="columns is-multiline" v-if="Object.keys(logs).length">
                     <div
                         class="column is-one-third"
                         v-for="(log, index) in logs"
@@ -22,6 +23,14 @@
                         </NuxtLink>
                     </div>
                 </div>
+
+                <template v-else>
+                    <b-skeleton width="100%" height="20px"></b-skeleton>
+                    <b-skeleton width="100%" height="20px"></b-skeleton>
+                    <b-skeleton width="100%" height="20px"></b-skeleton>
+                    <b-skeleton width="100%" height="20px"></b-skeleton>
+                </template>
+
             </div>
         </div>
     </section>
