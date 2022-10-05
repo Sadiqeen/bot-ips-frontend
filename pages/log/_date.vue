@@ -1,5 +1,5 @@
 <template>
-    <section class="mt-5">
+    <section class="py-5">
         <div class="title">
             <b-icon icon="text-box-search-outline" /> Log :
             {{ convertDate(date) }}

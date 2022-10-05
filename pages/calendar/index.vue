@@ -1,8 +1,8 @@
 <template>
-    <section class="my-5">
+    <section class="py-5">
         <h3 class="title"><b-icon icon="calendar" /> ปฏิทิน</h3>
 
-        <div class="box mt-5 has-background-primary p-2">
+        <div class="box my-5 has-background-primary p-2">
             <div class="is-flex-desktop">
                 <div class="">
                     <b-datepicker

@@ -1,9 +1,9 @@
 <template>
-    <section>
-        <div class="columns is-centered mt-5">
+    <section class="mt-3">
+        <div class="columns is-centered">
             <div class="column is-6">
                 <form @submit.prevent="login()">
-                    <div class="box">
+                    <div class="box mt-6">
                         <div class="notification is-danger" v-if="error">
                             {{ error }}
                         </div>

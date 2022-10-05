@@ -1,5 +1,5 @@
 <template>
-    <section class="mt-5">
+    <section class="py-5">
         <h3 class="title">
             <b-icon icon="plus" /> เพิ่มเพจในระบบ
 
@@ -8,7 +8,7 @@
                 :to="{ name: 'page' }"
                 type="is-primary is-pulled-right"
             >
-                <b-icon icon="format-list-bulleted" />
+                <b-icon icon="format-list-bulleted has-text-white" />
             </b-button>
         </h3>
 

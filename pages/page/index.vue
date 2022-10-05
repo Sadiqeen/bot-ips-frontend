@@ -1,5 +1,5 @@
 <template>
-    <section class="mt-5">
+    <section class="py-5">
         <h3 class="title is-hidden-mobile">
             <b-icon icon="format-list-bulleted" /> เพจในระบบ
 

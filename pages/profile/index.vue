@@ -1,5 +1,5 @@
 <template>
-    <section class="mt-5">
+    <section class="py-5">
         <h3 class="title"><b-icon icon="account" /> แก้ไขโปรไฟล์</h3>
 
         <div class="box mt-5 has-background-primary p-2">

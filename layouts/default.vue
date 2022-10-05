@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="height: 100vh;">
         <section class="has-background-light navbar-shadow py-3">
             <div class="container is-max-widescreen">
                 <Navbar
@@ -10,8 +10,8 @@
             </div>
         </section>
 
-        <section class="main-content">
-            <div class="container is-max-widescreen px-3">
+        <section class="main-content" style="background-color: #E8F1F2;min-height: 100%;">
+            <div class="container is-max-widescreen px-3" style="">
                 <Nuxt />
             </div>
         </section>
