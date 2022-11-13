@@ -2,7 +2,7 @@
     <b-navbar type="is-light">
         <template #brand>
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                <nuxt-img src="/logo.png" height="28" />
+                <img src="/logo.png" height="28" />
                 <span
                     class="ml-2 has-text-weight-bold is-size-5 is-hidden-mobile is-hidden-tablet-only"
                     >Bot islamic prayer times</span
