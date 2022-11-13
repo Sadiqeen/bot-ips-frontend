@@ -94,6 +94,22 @@ export default {
         dir: 'assets/images'
     },
 
+    pwa: {
+        icon: {
+            source: './static/logo.png'
+        },
+        manifest: {
+            name: 'Islamic Prayer Time',
+            short_name: 'Bot IPS',
+            lang: 'th',
+            display: 'standalone',
+            viewport: 'width=device-width, initial-scale=1',
+            theme_color: '#089BAB'
+        },
+        workbox: {
+        },
+    },
+
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
     }
