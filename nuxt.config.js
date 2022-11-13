@@ -104,8 +104,8 @@ export default {
             lang: 'th',
             display: 'standalone',
             viewport: 'width=device-width, initial-scale=1',
-            theme_color: '#089BAB',
-            background_color : '#089BAB',
+            theme_color: '#00d1b2',
+            background_color : '#00d1b2',
             icon: [
                 {
                     "src": "windows11/SmallTile.scale-100.png",
