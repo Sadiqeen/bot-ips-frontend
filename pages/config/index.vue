@@ -4,7 +4,7 @@
 
         <div class="box my-5 has-background-primary p-2">
             <div class="box">
-                <form @submit.prevent="submitForm()">
+                <!-- <form @submit.prevent="submitForm()">
                     <div class="columns mb-5">
                         <div class="column is-6 mx-auto">
                             <b-field
@@ -53,7 +53,7 @@
                             </b-button>
                         </div>
                     </div>
-                </form>
+                </form> -->
 
                 <ConfigTable :table_reload="table_index"></ConfigTable>
             </div>
