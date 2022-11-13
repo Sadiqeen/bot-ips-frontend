@@ -105,8 +105,10 @@ $link-focus-border: $primary;
     padding-bottom: 1em;
 }
 
-.nuxt-link-exact-active, .nuxt-link-active {
-    color: $primary !important;
+.navbar-end {
+    .nuxt-link-exact-active, .nuxt-link-active {
+        color: $primary !important;
+    }
 }
 
 .navbar-shadow {

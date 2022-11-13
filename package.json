@@ -22,6 +22,7 @@
     "webpack": "^5.73.0"
   },
   "devDependencies": {
+    "@nuxt/image": "^0.7.1",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.3.5",
     "sass": "^1.53.0",
