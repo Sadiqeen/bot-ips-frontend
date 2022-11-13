@@ -95,9 +95,6 @@ export default {
     },
 
     pwa: {
-        icon: {
-            source: './static/AppImages/android/android-launchericon-72-72.png'
-        },
         manifest: {
             name: 'Islamic Prayer Time',
             short_name: 'Bot IPS',
