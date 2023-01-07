@@ -65,6 +65,9 @@
                 <b-button
                     type="is-info is-light"
                     size="is-small"
+                    tag="a"
+                    :href="`https://bot-ipt-api.sleepless-tech.com/api/post/` + props.row.page_id"
+                    target="_blank"
                     icon-right="run"
                 />
                 <b-button
