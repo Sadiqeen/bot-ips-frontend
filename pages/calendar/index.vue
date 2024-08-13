@@ -5,14 +5,8 @@
         <div class="box my-5 has-background-primary p-2">
             <div class="is-flex-desktop">
                 <div class="">
-                    <b-datepicker
-                        inline
-                        v-model="date"
-                        :indicators="indicators"
-                        locale="TH"
-                        :min-date="calendar.min"
-                        :max-date="calendar.max"
-                    >
+                    <b-datepicker inline v-model="date" :indicators="indicators" locale="TH" :min-date="calendar.min"
+                        :max-date="calendar.max">
                     </b-datepicker>
 
                     <div class="box my-2 mb-desktop-0">
@@ -28,14 +22,8 @@
                                 }}</small>
                             </div>
 
-                            <b-button
-                                @click="submitStartMountDate(date)"
-                                type="is-danger"
-                                class="is-pulled-right"
-                                size="is-small"
-                                label="บันทึก"
-                                :disabled="is_submit_date_loading"
-                            />
+                            <b-button @click="submitStartMountDate(date)" type="is-danger" class="is-pulled-right"
+                                size="is-small" label="บันทึก" :disabled="is_submit_date_loading" />
                         </div>
 
                         <div class="" v-else>
@@ -45,67 +33,41 @@
                     </div>
                 </div>
                 <div class="is-fullwidth box ml-desktop-5 p-2">
-                    <b-table
-                        :data="data"
-                        :loading="is_loading"
-                        mobile-cards
-                        striped
-                        hoverable
-                        :default-sort="['id', 'desc']"
-                    >
-                        <b-table-column
-                            field="id"
-                            label="ไอดี"
-                            numeric
-                            centered
-                            sortable
-                            v-slot="props"
-                        >
+                    <b-table :data="data" :loading="is_loading" mobile-cards striped hoverable
+                        :default-sort="['id', 'desc']">
+                        <b-table-column field="id" label="ไอดี" numeric centered sortable :width="70" v-slot="props">
                             {{ props.row.id }}
                         </b-table-column>
 
-                        <b-table-column
-                            field="month_th"
-                            label="ฮิจเราะห์"
-                            centered
-                            v-slot="props"
-                        >
-                            <span class="has-text-grey-light"
-                                >--{{ props.row.month_num }}--</span
-                            >
+                        <b-table-column field="month_th" label="ฮิจเราะห์" centered v-slot="props">
+                            <span class="has-text-grey-light">--{{ props.row.month_num }}--</span>
                             {{ props.row.month_th }} {{ props.row.year }}
                         </b-table-column>
 
-                        <b-table-column
-                            field="international"
-                            label="วันสากล"
-                            centered
-                            v-slot="props"
-                        >
+                        <b-table-column field="international" label="วันสากล" centered v-slot="props">
                             {{ dateFormat(props.row.international) }}
                         </b-table-column>
 
+                        <b-table-column label="รูปภาพ" centered v-slot="props">
+                            <b-button :type="props.row.image_name ? 'is-success' : 'is-danger'" icon-left="upload"
+                                size="is-small" @click="openUploadModal(props.row.id, props.row.image_name)">
+                                {{ props.row.image_name ? "มีรูปภาพแล้ว" : "ไม่มีรูปภาพ" }}
+                            </b-button>
+                        </b-table-column>
+
                         <b-table-column label="###" centered v-slot="props">
-                            <b-button
-                                @click="
-                                    deleteDate(
-                                        props.row.deletable,
-                                        props.row.id
-                                    )
-                                "
-                                :type="
-                                    props.row.deletable
-                                        ? 'is-danger'
-                                        : 'is-light'
-                                "
-                                size="is-small"
-                                :icon-right="
-                                    props.row.deletable
+                            <b-button @click="
+                                deleteDate(
+                                    props.row.deletable,
+                                    props.row.id
+                                )
+                                " :type="props.row.deletable
+                                    ? 'is-danger'
+                                    : 'is-light'
+                                    " size="is-small" :icon-right="props.row.deletable
                                         ? 'delete-forever'
                                         : 'lock'
-                                "
-                                :disabled="!props.row.deletable"
-                            />
+                                        " :disabled="!props.row.deletable" />
                         </b-table-column>
                     </b-table>
                 </div>
@@ -115,6 +77,8 @@
 </template>
 
 <script>
+import ImageUpload from "~/components/ImageUpload";
+
 export default {
     middleware: "auth",
 
@@ -261,6 +225,25 @@ export default {
             }
             return true;
         },
+
+        openUploadModal(id, image_name) {
+            this.$buefy.modal.open({
+                parent: this,
+                component: ImageUpload,
+                hasModalCard: true,
+                props: {
+                    id: id,
+                    image_name: image_name,
+                },
+                trapFocus: true,
+                canCancel: false,
+                events: {
+                    reloadData: () => {
+                        this.initTable();
+                    },
+                },
+            });
+        }
     },
 };
 </script>
