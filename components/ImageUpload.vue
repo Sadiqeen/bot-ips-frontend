@@ -63,7 +63,7 @@ export default {
     data() {
         return {
             dropFile: this.image_name ? new File([""], this.image_name) : null,
-            src: this.image_name ? process.env.API + '/api/file/' + this.image_name.replace(".", "_") : "",
+            src: this.image_name ? process.env.NUXT_ENV_BASE_API + '/api/file/' + this.image_name.replace(".", "_") : "",
             isLoading: false
         };
     },
