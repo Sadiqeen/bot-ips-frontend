@@ -38,6 +38,7 @@ export default {
     buildModules: [
         '@nuxtjs/pwa',
         '@nuxt/image',
+        '@nuxtjs/dotenv',
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
