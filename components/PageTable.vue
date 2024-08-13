@@ -179,7 +179,7 @@ export default {
             this.isLoading = false;
         },
         async copyApiLink(id) {
-            this.copySomething(process.env.API + "/api/post/" + id);
+            this.copySomething(process.env.NUXT_ENV_BASE_API + "/api/post/" + id);
         },
         async copySomething(text) {
             try {

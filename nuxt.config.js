@@ -38,7 +38,6 @@ export default {
     buildModules: [
         '@nuxtjs/pwa',
         '@nuxt/image',
-        '@nuxtjs/dotenv',
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -57,7 +56,7 @@ export default {
         strategies: {
             'laravelJWT': {
                 provider: 'laravel/jwt',
-                url: process.env.API,
+                url: process.env.NUXT_ENV_BASE_API,
                 endpoints: {
                     login: { url: '/api/login', method: 'post', propertyName: 'access_token' },
                     logout: { url: '/api/logout' },
@@ -88,7 +87,7 @@ export default {
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
         // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-        baseURL: process.env.API + '/api',
+        baseURL: process.env.NUXT_ENV_BASE_API + '/api',
     },
 
     image: {
