@@ -240,6 +240,8 @@ export default {
         },
 
         async updatePrayerTimes() {
+            const method = this.selected_method;
+
             const body = {
                 ...this.form_adjust,
                 method: method
