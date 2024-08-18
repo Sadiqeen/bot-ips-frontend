@@ -40,7 +40,7 @@
                 sortable
                 v-slot="props"
             >
-                <a :href="props.row.url" target="_blank">
+                <a :href="genMapUrl(props.row.lat, props.row.long)" target="_blank">
                     {{ props.row.name }}
                 </a>
             </b-table-column>
@@ -129,6 +129,10 @@ export default {
         },
     },
     methods: {
+        genMapUrl(lat, long) {
+            return `https://www.google.com/maps/search/${lat},${long}/@${lat},${long},17z?entry=ttu`;
+        },
+
         async initTable() {
             this.isLoading = true;
 

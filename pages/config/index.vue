@@ -58,11 +58,14 @@
                 <ConfigTable :table_reload="table_index"></ConfigTable>
             </div>
         </div>
+
+        <CalPrayerTimes/>
     </section>
 </template>
 
 <script>
 import ConfigTable from "~/components/ConfigTable.vue";
+import CalPrayerTimes from "~/components/CalculatePrayerTimes.vue";
 
 export default {
     name: "Config",
@@ -83,11 +86,11 @@ export default {
 
     components: {
         ConfigTable,
+        CalPrayerTimes
     },
 
-    mounted() {},
-
     methods: {
+
         async submitForm() {
             this.form_loading = true;
 
