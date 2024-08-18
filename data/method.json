@@ -1,0 +1,191 @@
+[
+    {
+        "key": "METHOD_JAFARI",
+        "value": "JAFARI",
+        "params": {
+            "FAJR": 16,
+            "ISHA": 14,
+            "MAGHRIB": 4,
+            "MIDNIGHT": "JAFARI"
+        }
+    },
+    {
+        "key": "METHOD_KARACHI",
+        "value": "KARACHI",
+        "params": {
+            "FAJR": 18,
+            "ISHA": 18
+        }
+    },
+    {
+        "key": "METHOD_ISNA",
+        "value": "ISNA",
+        "params": {
+            "FAJR": 15,
+            "ISHA": 15
+        }
+    },
+    {
+        "key": "METHOD_MWL",
+        "value": "MWL",
+        "params": {
+            "FAJR": 18,
+            "ISHA": 17
+        }
+    },
+    {
+        "key": "METHOD_MAKKAH",
+        "value": "MAKKAH",
+        "params": {
+            "FAJR": 18.5,
+            "ISHA": "90 min"
+        }
+    },
+    {
+        "key": "METHOD_EGYPT",
+        "value": "EGYPT",
+        "params": {
+            "FAJR": 19.5,
+            "ISHA": 17.5
+        }
+    },
+    {
+        "key": "METHOD_TEHRAN",
+        "value": "TEHRAN",
+        "params": {
+            "FAJR": 17.7,
+            "ISHA": 14,
+            "MAGHRIB": 4.5,
+            "MIDNIGHT": "JAFARI"
+        }
+    },
+    {
+        "key": "METHOD_GULF",
+        "value": "GULF",
+        "params": {
+            "FAJR": 19.5,
+            "ISHA": "90 min"
+        }
+    },
+    {
+        "key": "METHOD_KUWAIT",
+        "value": "KUWAIT",
+        "params": {
+            "FAJR": 18,
+            "ISHA": 17.5
+        }
+    },
+    {
+        "key": "METHOD_QATAR",
+        "value": "QATAR",
+        "params": {
+            "FAJR": 18,
+            "ISHA": "90 min"
+        }
+    },
+    {
+        "key": "METHOD_SINGAPORE",
+        "value": "SINGAPORE",
+        "params": {
+            "FAJR": 20,
+            "ISHA": 18
+        }
+    },
+    {
+        "key": "METHOD_FRANCE",
+        "value": "FRANCE",
+        "params": {
+            "FAJR": 12,
+            "ISHA": 12
+        }
+    },
+    {
+        "key": "METHOD_TURKEY",
+        "value": "TURKEY",
+        "params": {
+            "FAJR": 18,
+            "ISHA": 17
+        }
+    },
+    {
+        "key": "METHOD_RUSSIA",
+        "value": "RUSSIA",
+        "params": {
+            "FAJR": 16,
+            "ISHA": 15
+        }
+    },
+    {
+        "key": "METHOD_MOONSIGHTING",
+        "value": "MOONSIGHTING",
+        "params": {
+            "shafaq": "GENERAL"
+        }
+    },
+    {
+        "key": "METHOD_DUBAI",
+        "value": "DUBAI",
+        "params": {
+            "FAJR": 18.2,
+            "ISHA": 18.2
+        }
+    },
+    {
+        "key": "METHOD_JAKIM",
+        "value": "JAKIM",
+        "params": {
+            "FAJR": 20,
+            "ISHA": 18
+        }
+    },
+    {
+        "key": "METHOD_TUNISIA",
+        "value": "TUNISIA",
+        "params": {
+            "FAJR": 18,
+            "ISHA": 18
+        }
+    },
+    {
+        "key": "METHOD_ALGERIA",
+        "value": "ALGERIA",
+        "params": {
+            "FAJR": 18,
+            "ISHA": 17
+        }
+    },
+    {
+        "key": "METHOD_KEMENAG",
+        "value": "KEMENAG",
+        "params": {
+            "FAJR": 20,
+            "ISHA": 18
+        }
+    },
+    {
+        "key": "METHOD_MOROCCO",
+        "value": "MOROCCO",
+        "params": {
+            "FAJR": 19,
+            "ISHA": 17
+        }
+    },
+    {
+        "key": "METHOD_PORTUGAL",
+        "value": "PORTUGAL",
+        "params": {
+            "FAJR": 18,
+            "MAGHRIB": "3 min",
+            "ISHA": "77 min"
+        }
+    },
+    {
+        "key": "METHOD_JORDAN",
+        "value": "JORDAN",
+        "params": {
+            "FAJR": 18,
+            "MAGHRIB": "5 min",
+            "ISHA": 18
+        }
+    }
+]
