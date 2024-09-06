@@ -10,7 +10,8 @@
                 icon="format-list-bulleted-square"
                 class="column is-3-desktop is-6-tablet"
             >
-                Have <b>{{ pageCount }}</b> pages
+                <b-skeleton :animated="animated" v-if="isLoading"></b-skeleton>
+                <span v-else>Have <b>{{ pageCount }}</b> pages</span>
             </card>
 
             <card
@@ -18,7 +19,8 @@
                 icon="office-building"
                 class="column is-3-desktop is-6-tablet"
             >
-                Have <b>{{ districtCount }}</b> districts
+                <b-skeleton :animated="animated" v-if="isLoading"></b-skeleton>
+                <span v-else>Have <b>{{ districtCount }}</b> districts</span>
             </card>
 
             <card
@@ -26,15 +28,17 @@
                 icon="account"
                 class="column is-3-desktop is-6-tablet"
             >
-                Have <b>{{ userCount }}</b> users
+                <b-skeleton :animated="animated" v-if="isLoading"></b-skeleton>
+                <span v-else>Have <b>{{ userCount }}</b> users</span>
             </card>
 
             <card
-                title="Other"
+                title="Hijri Record"
                 icon="arrange-bring-to-front"
                 class="column is-3-desktop is-6-tablet"
             >
-                <b>Not defined</b>
+                <b-skeleton :animated="animated" v-if="isLoading"></b-skeleton>
+                <span v-else>Have <b>{{ record }}</b> records</span>
             </card>
         </div>
     </section>
@@ -52,6 +56,8 @@ export default {
             pageCount: 0,
             districtCount: 0,
             userCount: 0,
+            record: 0,
+            isLoading: false
         };
     },
 
@@ -71,12 +77,15 @@ export default {
 
     methods: {
         async initData() {
+            this.isLoading = true;
+
             try {
                 const response = await this.$axios.$get(`main`);
 
                 this.pageCount = response.data.pages;
                 this.districtCount = response.data.districts;
                 this.userCount = response.data.users;
+                this.record = response.data.records;
             } catch (e) {
                 console.error(e);
 
@@ -84,6 +93,8 @@ export default {
                     message: "มีข้อผิดพลาด!!",
                     type: "is-danger",
                 });
+            } finally {
+                this.isLoading = false;
             }
         },
     },

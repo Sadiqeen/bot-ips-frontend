@@ -1,6 +1,6 @@
 <template>
     <div style="height: 100vh;">
-        <section class="has-background-light navbar-shadow py-3">
+        <section class="has-background-light navbar-shadow py-3" ref="navbar">
             <div class="container is-max-widescreen">
                 <Navbar
                     @toggleDrawer="openDrawer = true"
@@ -10,7 +10,7 @@
             </div>
         </section>
 
-        <section class="main-content" style="background-color: #E8F1F2;min-height: 100%;">
+        <section class="main-content" :style="'background-color: #E8F1F2;min-height: calc(100vh - ' + navbarHeight + 'px);'">
             <div class="container is-max-widescreen px-3" style="">
                 <Nuxt />
             </div>
@@ -25,6 +25,7 @@ export default {
     name: "DefaultLayout",
     data() {
         return {
+            navbarHeight: 0,
             openDrawer: false,
             authMenu: [
                 {
@@ -60,6 +61,12 @@ export default {
             ],
         };
     },
+
+    mounted() {
+        const navbarHeight = this.$refs.navbar.offsetHeight;
+        this.navbarHeight = navbarHeight;
+    },
+
     methods: {
         async logout() {
             await this.$auth.logout();
